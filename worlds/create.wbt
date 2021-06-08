@@ -1,0 +1,123 @@
+#VRML_SIM R2021a utf8
+WorldInfo {
+  info [
+    "iRobot Create simulation"
+    "The vacuum cleaner robot goes randomly into the apartment while a supervisor tracks its position and alterates the ground texture."
+    "The robot can be stopped by the virtual walls emitting IR light."
+  ]
+  title "iRobot Create"
+  coordinateSystem "NUE"
+}
+Viewpoint {
+  orientation 0.9997043437790966 0.019894222730909815 -0.013980162056958298 4.720242033751662
+  position -0.2986967844891547 16.146693163729736 0.43155046243211137
+  near 0.1
+  follow "Create"
+  followType "None"
+}
+TexturedBackground {
+}
+CeilingLight {
+  translation 1.29685 2.4 -1.82639
+  pointLightColor 1 1 0.9372549019607843
+  pointLightIntensity 7
+}
+CeilingLight {
+  translation -1.9443400000000004 2.4 3.25511
+  name "ceiling light(2)"
+  pointLightIntensity 6
+}
+Wall {
+  translation 0 0 -5
+  size 10.3 2.4 0.3
+}
+Wall {
+  translation -5 0 0
+  rotation 0 1 0 1.5708
+  name "wall(2)"
+  size 9.7 2.4 0.3
+}
+Wall {
+  translation 0 0 5
+  name "wall(3)"
+  size 10.3 2.4 0.3
+}
+Wall {
+  translation 5 0 0
+  rotation 0 1 0 1.5708
+  name "wall(4)"
+  size 9.7 2.4 0.3
+}
+DEF IROBOT_CREATE Create {
+  translation -0.209358 0.0899546 3.78248
+  rotation 0 1 0 -1.5707953071795862
+}
+Robot {
+  children [
+    Shape {
+      appearance Parquetry {
+        textureTransform TextureTransform {
+          scale 7 7
+        }
+      }
+      geometry Plane {
+        size 10 10
+      }
+    }
+    Display {
+      translation 0 0.01 0
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColorMap ImageTexture {
+              url [
+                "textures/dirty.jpg"
+              ]
+            }
+            transparency 0.9
+            roughness 0.5
+            metalness 0
+          }
+          geometry Plane {
+            size 9.9 9.9
+          }
+        }
+      ]
+      name "ground_display"
+      width 512
+      height 512
+    }
+  ]
+  boundingObject Plane {
+    size 9.9 9.9
+  }
+  locked TRUE
+  controller "ground"
+  supervisor TRUE
+}
+Wall {
+  name "wall(1)"
+}
+OilBarrel {
+  translation 2.76 0.44 0
+}
+OilBarrel {
+  translation -2.8 0.44 2.71
+  name "oil barrel(1)"
+}
+OilBarrel {
+  translation 2.94 0.44 2.71
+  name "oil barrel(2)"
+}
+OilBarrel {
+  translation -2.8 0.44 -3.02
+  name "oil barrel(3)"
+}
+OilBarrel {
+  translation -1.81 0.44 -2.16
+  name "oil barrel(4)"
+}
+OilBarrel {
+  translation 1.14 0.44 1.52
+  name "oil barrel(5)"
+}
