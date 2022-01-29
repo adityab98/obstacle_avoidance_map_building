@@ -1,3 +1,6 @@
+The relevant files are at controllers/create_avoid_obstacles with
+create_avoid_obstacles.c being the most important.
+
 # Abstract
 
 We modify the working of iRobot’s Create such that the robot 
